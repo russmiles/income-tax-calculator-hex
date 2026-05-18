@@ -54,3 +54,10 @@ Tests are organised in several styles:
 
 - JDK 21+ (Homebrew `openjdk` works — see `~/.zshrc` for `JAVA_HOME`)
 - No global Maven needed — `./mvnw` bootstraps the right version
+
+## References
+
+- [Heart of Agile](https://heartofagile.com/) — Alistair Cockburn's framework; this codebase is used as a teaching example in those workshops.
+- [Hexagonal Architecture](https://alistair.cockburn.us/hexagonal-architecture/) — the original 2005 article by Alistair Cockburn introducing ports & adapters.
+- [The Sovereign Engineer](https://leanpub.com/thesovereignengineer) (Russ Miles, Leanpub) — the discipline of designing the environment in which human and artificial intelligence produce work worth keeping; covers harness engineering, spec-first development, and the practices used to grow this repo.
+- [`ai-literacy-superpowers`](https://github.com/Habitat-Thinking/ai-literacy-superpowers) — Claude Code & GitHub Copilot plugin packaging the AI Literacy framework (harness, agent orchestration, literate programming, CUPID code review). The `REFLECTION_LOG.md` and `docs/superpowers/` artefacts in this repo are produced by it.

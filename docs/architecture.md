@@ -233,3 +233,13 @@ The hexagonal structure makes it cheap to add new ways in and out:
 
 The application core and existing adapters do not need to change. Wire the new
 adapter in `App.java`.
+
+---
+
+## References
+
+- [Hexagonal Architecture (Cockburn, 2005)](https://alistair.cockburn.us/hexagonal-architecture/) — the source paper. The `For*` port naming convention used in this codebase comes from Cockburn.
+- [Heart of Agile](https://heartofagile.com/) — Alistair Cockburn's framework; this codebase is the teaching artefact for the hexagonal architecture portion of those workshops.
+- [The C4 model](https://c4model.com/) — Simon Brown's notation used for the diagrams above.
+- [The Sovereign Engineer](https://leanpub.com/thesovereignengineer) (Russ Miles, Leanpub) — the broader discipline behind how this codebase was built with AI assistance: harness engineering, spec-first development, choice cartography, and the reflection loop you can see in `REFLECTION_LOG.md` and `docs/superpowers/`.
+- [`ai-literacy-superpowers`](https://github.com/Habitat-Thinking/ai-literacy-superpowers) — Claude Code & GitHub Copilot plugin packaging the AI Literacy framework. The artefacts under `docs/superpowers/` (the spec + choice-story record for the multi-level testing strategy) and the `REFLECTION_LOG.md` entry were produced by its `/choice-cartograph` and `/reflect` commands respectively.
