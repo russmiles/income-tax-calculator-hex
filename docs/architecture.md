@@ -211,10 +211,11 @@ Tests mirror this layout under `src/test/java`:
 
 ```
 acceptance/
-├── StubTaxRateRepository                    # test-only outbound adapter
-├── CalculatingIncomeTaxAcceptanceTest       # drives through the inbound port
-├── CalculatingIncomeTaxViaCliAcceptanceTest # drives through the CLI adapter
-└── CalculatingIncomeTaxViaWebAcceptanceTest # drives through the web adapter (real HTTP)
+├── StubTaxRateRepository                       # test-only outbound adapter
+├── CalculatingIncomeTaxAcceptanceTest          # drives through the inbound port
+├── CalculatingIncomeTaxViaCliAcceptanceTest    # drives through the CLI adapter
+├── CalculatingIncomeTaxViaWebAcceptanceTest    # drives through the web adapter (real HTTP)
+└── CalculatingIncomeTaxViaBrowserAcceptanceTest# drives through a real browser (headless Chrome, Selenium)
 ```
 
 ---

@@ -37,12 +37,18 @@ Two inbound adapters share the same application core. Pick one:
 ./mvnw test
 ```
 
-Tests are organised in three styles:
+Tests are organised in several styles:
 
 - **Unit tests** for individual classes (`TaxCalculatorTest`, `FixedTaxRateRepositoryTest`)
-- **Acceptance tests** that drive the system through its inbound port with a
-  stubbed outbound port (`acceptance/CalculatingIncomeTaxAcceptanceTest`)
 - **Wiring test** for the composition root (`AppTest`)
+- **Acceptance tests** under `src/test/java/.../acceptance/`, each driving the
+  system through a different inbound surface with a stubbed outbound port:
+  - through the inbound **port** directly (`CalculatingIncomeTaxAcceptanceTest`)
+  - through the **CLI** adapter (`CalculatingIncomeTaxViaCliAcceptanceTest`)
+  - through the **web** adapter over real HTTP (`CalculatingIncomeTaxViaWebAcceptanceTest`)
+  - through a real **browser** with headless Chrome via Selenium
+    (`CalculatingIncomeTaxViaBrowserAcceptanceTest`) — skipped automatically if
+    Chrome isn't installed
 
 ## Requirements
 
