@@ -1,8 +1,17 @@
 # Architecture
 
 The Income Tax Calculator is a small Java application structured using
-**hexagonal architecture** (ports & adapters). This document describes the
-system using the [C4 model](https://c4model.com/) at three levels:
+**hexagonal architecture** (ports & adapters).
+
+> This codebase is a teaching example used to explore Hexagonal Architecture
+> as part of Alistair Cockburn's [Heart of Agile](https://heartofagile.com/)
+> workshops. Hexagonal architecture itself was [introduced by Alistair
+> Cockburn in 2005](https://alistair.cockburn.us/hexagonal-architecture/).
+> The application is intentionally minimal — the architectural shape is what
+> the example is meant to make visible.
+
+This document describes the system using the [C4 model](https://c4model.com/)
+at three levels:
 
 1. **Context** — the system and its users
 2. **Container** — the runtime units that make up the system

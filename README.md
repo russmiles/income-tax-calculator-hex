@@ -3,6 +3,11 @@
 A small Java application that calculates income tax, structured using
 hexagonal architecture (ports & adapters).
 
+This codebase is a teaching example used to explore Hexagonal Architecture
+as part of Alistair Cockburn's [Heart of Agile](https://heartofagile.com/)
+workshops. It is deliberately tiny so that the architectural shape — not the
+business logic — is what stands out.
+
 See [`docs/architecture.md`](docs/architecture.md) for the C4 diagrams and
 component layout.
 
