@@ -95,6 +95,7 @@ flowchart LR
 
     subgraph in_adapters["Inbound Adapters"]
         web["WebServer<br/><i>adapter.in.web</i>"]
+        cli["CommandLine<br/><i>adapter.in.cli</i>"]
     end
 
     subgraph in_ports["Inbound Ports"]
@@ -118,7 +119,9 @@ flowchart LR
     end
 
     user -->|HTTP| web
+    user -->|argv / stdout| cli
     web -->|depends on| fct
+    cli -->|depends on| fct
     calc -.implements.-> fct
     calc -->|depends on| fgr
     repo -.implements.-> fgr
@@ -129,7 +132,7 @@ flowchart LR
     classDef domainNode fill:#f3e8ff,stroke:#7e22ce,color:#000
 
     class fct,fgr port
-    class web,repo adapter
+    class web,cli,repo adapter
     class calc service
     class band domainNode
 ```
@@ -178,7 +181,8 @@ sequenceDiagram
 
 ```
 com.russmiles.incometax
-├── App                                      # composition root + main()
+├── App                                      # composition root + main (web)
+├── CliApp                                   # composition root + main (cli)
 │
 ├── domain
 │   └── TaxBand                              # value type (no outward deps)
@@ -194,8 +198,10 @@ com.russmiles.incometax
 │
 └── adapter
     ├── in
-    │   └── web
-    │       └── WebServer                    # HTTP UI → ForCalculatingTaxes
+    │   ├── web
+    │   │   └── WebServer                    # HTTP UI → ForCalculatingTaxes
+    │   └── cli
+    │       └── CommandLine                  # CLI → ForCalculatingTaxes
     └── out
         └── persistence
             └── FixedTaxRateRepository       # implements ForGettingTaxRates
@@ -206,7 +212,8 @@ Tests mirror this layout under `src/test/java`:
 ```
 acceptance/
 ├── StubTaxRateRepository                    # test-only outbound adapter
-└── CalculatingIncomeTaxAcceptanceTest       # drives through the inbound port
+├── CalculatingIncomeTaxAcceptanceTest       # drives through the inbound port
+└── CalculatingIncomeTaxViaCliAcceptanceTest # drives through the CLI adapter
 ```
 
 ---
@@ -217,7 +224,7 @@ The hexagonal structure makes it cheap to add new ways in and out:
 
 | To add… | Create a class in… | Have it depend on… |
 |---|---|---|
-| A CLI front-end | `adapter.in.cli` | `ForCalculatingTaxes` |
+| ~~A CLI front-end~~ (done — see `CommandLine`) | `adapter.in.cli` | `ForCalculatingTaxes` |
 | A REST/JSON API | `adapter.in.web` | `ForCalculatingTaxes` |
 | Rates from a database | `adapter.out.persistence` | implement `ForGettingTaxRates` |
 | Rates from HMRC's API | `adapter.out.http` (new package) | implement `ForGettingTaxRates` |

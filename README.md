@@ -13,15 +13,22 @@ component layout.
 
 ## Running
 
+Two inbound adapters share the same application core. Pick one:
+
+**Web UI:**
+
 ```sh
 ./mvnw exec:java -Dexec.mainClass=com.russmiles.incometax.App
 # then open http://localhost:8080
+# (optional) override port:
+./mvnw exec:java -Dexec.mainClass=com.russmiles.incometax.App -Dexec.args="9000"
 ```
 
-Optional port override:
+**Command line:**
 
 ```sh
-./mvnw exec:java -Dexec.mainClass=com.russmiles.incometax.App -Dexec.args="9000"
+./mvnw -q exec:java -Dexec.mainClass=com.russmiles.incometax.CliApp -Dexec.args="100"
+# Tax on 100.00 = 15.00
 ```
 
 ## Testing
